@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>This will be newmessage page</h1>
+
+    <h3>'/newmessage' –route render an input form to the page.</h3>
+    <h3>"Form should have fields for the following data:</h3>
+
+    <div class="list">
+      <ul class="lista" id="myList"></ul>
+    </div>
+
+    <script>
+      var lista = document.querySelector(".lista");
+
+      newmessage = [
+        "username",
+        "country",
+        "message",
+        "submit buttin (notempty)",
+      ];
+
+      newmessage.forEach((message) => {
+        var div = document.createElement("div");
+
+        var li_elementti = document.createElement("li");
+        li_elementti.innerText = message;
+        div.appendChild(li_elementti);
+        lista.appendChild(div);
+      });
+    </script>
+  </body>
+</html>
