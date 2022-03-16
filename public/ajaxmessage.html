@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>AJAX mesage</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bootstrap Site</title>
@@ -20,7 +21,7 @@
       integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -55,33 +56,6 @@
       </div>
     </nav>
 
-    <h1>This will be newmessage page</h1>
-
-    <h3>'/newmessage' –route render an input form to the page.</h3>
-    <h3>"Form should have fields for the following data:</h3>
-
-    <div class="list">
-      <ul class="lista" id="myList"></ul>
-    </div>
-
-    <script>
-      var lista = document.querySelector(".lista");
-
-      newmessage = [
-        "username",
-        "country",
-        "message",
-        "submit buttin (notempty)",
-      ];
-
-      newmessage.forEach((message) => {
-        var div = document.createElement("div");
-
-        var li_elementti = document.createElement("li");
-        li_elementti.innerText = message;
-        div.appendChild(li_elementti);
-        lista.appendChild(div);
-      });
-    </script>
+    <h1>Ajax Form</h1>
   </body>
 </html>

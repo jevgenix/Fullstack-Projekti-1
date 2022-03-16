@@ -2,6 +2,7 @@ const PORT = process.env.PORT || 8081;
 
 var express = require("express");
 var app = express();
+
 app.use(express.static("./public"));
 
 newmessage = ["username", "country", "message", "submit buttin (not empty)"];
@@ -16,6 +17,10 @@ app.get("/guestbook", (req, res) => {
 
 app.get("/newmessage", (req, res) => {
   res.sendFile(__dirname + "/public/newmessage.html");
+});
+
+app.get("/ajaxmessage", (req, res) => {
+  res.sendFile(__dirname + "/public/ajaxmessage.html");
 });
 
 app.get("*", function (req, res) {

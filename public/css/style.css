@@ -10778,4 +10778,13 @@ button.close {
     display: inline-flex !important;
   }
 }
+
+body {
+  background-color: #ccc;
+}
+
+body .container {
+  padding-top: 20px;
+  padding-left: 20px;
+}
 /*# sourceMappingURL=style.css.map */

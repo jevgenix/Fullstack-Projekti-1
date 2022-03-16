@@ -1,1 +1,11 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+$theme-bg: #ccc;
+
+body {
+  background-color: $theme-bg;
+  .container {
+    padding-top: 20px;
+    padding-left: 20px;
+  }
+}
