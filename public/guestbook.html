@@ -5,14 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bootstrap Site</title>
     <div class="bs_links"></div>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark"></nav>
-
     <h1>This will be guestbook page</h1>
-
     <h3>
       '/guestbook' - route will load a JSON-file and parse it on the page as a
       formatted table
@@ -26,6 +24,13 @@
         >(Linkittyy ulkoiselle sivustolle.)</a
       >
     </h3>
-    <script type="text/javascript" src="/modules/navbar.js"></script>
+
+    <br />
+    <br />
+
+    <div id="message"></div>
+
+    <script type="text/javascript" src="/modules/components.js"></script>
+    <script src="./book.js"></script>
   </body>
 </html>
