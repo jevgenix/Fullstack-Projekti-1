@@ -10,33 +10,22 @@
   <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark"></nav>
 
-    <h1>This will be newmessage page</h1>
-
-    <h3>'/newmessage' –route render an input form to the page.</h3>
-    <h3>"Form should have fields for the following data:</h3>
-
     <div class="list">
       <ul class="lista" id="myList"></ul>
     </div>
-    <script type="text/javascript" src="/modules/components.js"></script>
+
+    <form class="form" method="post" action="/newmessage"></form>
+
     <script>
-      var lista = document.querySelector(".lista");
+      const form = document.querySelector(".form");
 
-      newmessage = [
-        "username",
-        "country",
-        "message",
-        "submit buttin (notempty)",
-      ];
-
-      newmessage.forEach((message) => {
-        var div = document.createElement("div");
-
-        var li_elementti = document.createElement("li");
-        li_elementti.innerText = message;
-        div.appendChild(li_elementti);
-        lista.appendChild(div);
-      });
+      fetch("modules/form.html")
+        .then((res) => res.text())
+        .then((data) => {
+          form.innerHTML = data;
+        });
     </script>
+
+    <script type="text/javascript" src="/modules/components.js"></script>
   </body>
 </html>

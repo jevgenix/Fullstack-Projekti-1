@@ -21,6 +21,17 @@ app.get("/newmessage", (req, res) => {
   res.sendFile(__dirname + "/public/newmessage.html");
 });
 
+app.post("/newmessage", (req, res) => {
+  console.log(req.body);
+  let username = req.body.username;
+  let country = req.body.country;
+  let message = req.body.message;
+  console.log(username, country, message);
+  res.send(
+    "Username: " + username + "\nCountry: " + country + "\nMessage: " + message
+  );
+});
+
 app.get("/ajaxmessage", (req, res) => {
   res.sendFile(__dirname + "/public/ajaxmessage.html");
 });
