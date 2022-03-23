@@ -3,15 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bootstrap Site</title>
+    <title>Guestbook app</title>
     <div class="bs_links"></div>
 
     <link rel="stylesheet" href="/css/style.css" />
   </head>
-  <body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark"></nav>
+  <body class="text-center">
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <!--Navbar-->
+        <div class="inner"></div>
+      </header>
+      <br />
+      <br />
+      <main role="main" class="inner cover">
+        <h1 class="cover-heading">Welcome to the guestbook!</h1>
+        <br />
+        <br />
+        <h3 class="lead">
+          Greetings, user.
+          <br />
+          <br />
+          This is a guestbook app, and you can leave here message whenever you
+          want. Follow with link below to leave your message! :)
+        </h3>
+        <br />
+        <br />
+        <p class="lead">
+          <a href="/newmessage" class="btn btn-lg btn-secondary"
+            >Leave your message</a
+          >
+        </p>
+        <p class="lead">
+          <a href="/guestbook" class="btn btn-lg btn-secondary"
+            >Show all messages</a
+          >
+        </p>
+      </main>
 
-    <div class="container"></div>
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <h2>
+            Created by jevgenix
+            <a href="https://github.com/jevgenix">@Github</a>.
+          </h2>
+        </div>
+      </footer>
+    </div>
 
     <script type="text/javascript" src="/modules/components.js"></script>
   </body>

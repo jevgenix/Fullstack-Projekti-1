@@ -1,8 +1,10 @@
 const PORT = process.env.PORT || 8081;
 
-var express = require("express");
-var app = express();
-var bodyParser = require("body-parser");
+const express = require("express");
+const app = express();
+const bodyParser = require("body-parser");
+const fs = require("fs");
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static("./public"));
@@ -22,13 +24,32 @@ app.get("/newmessage", (req, res) => {
 });
 
 app.post("/newmessage", (req, res) => {
+  let data = require("./public/data.json");
+
   console.log(req.body);
   let username = req.body.username;
   let country = req.body.country;
   let message = req.body.message;
-  console.log(username, country, message);
+  let id = data.length + 1;
+  let date = new Date().toString();
+
+  data.push({
+    id: id,
+    username: username,
+    country: country,
+    date: date,
+    message: message,
+  });
+
+  var jsonStr = JSON.stringify(data);
+
+  fs.writeFile("./public/data.json", jsonStr, (err) => {
+    if (err) throw err;
+    console.log("Data sended to json file!");
+  });
+
   res.send(
-    "Username: " + username + "\nCountry: " + country + "\nMessage: " + message
+    "Username: " + username + "Country: " + country + "Message: " + message
   );
 });
 

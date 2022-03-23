@@ -1,4 +1,4 @@
-const nav = document.querySelector(".navbar");
+const nav = document.querySelector(".inner");
 fetch("modules/navbar.html")
   .then((res) => res.text())
   .then((data) => {
