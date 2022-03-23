@@ -14,9 +14,49 @@
         <!--Navbar-->
         <div class="inner"></div>
       </header>
-
+      <br>
     <h1>Ajax Form</h1>
 
+    
+    <br>
+
+    <form class="form" method="POST" action="/message">
+      <label class="sr-only" for="username">Username</label>
+
+      <input
+        type="text"
+        class="form-control mb-2 mr-sm-2"
+        id="username"
+        placeholder="Username"
+        name="username"
+      />
+      
+      <label class="sr-only" for="country">Country</label>
+      <input
+        type="text"
+        class="form-control mb-2 mr-sm-2"
+        id="country"
+        placeholder="Country"
+        name="country"
+      />
+      
+      <div class="form-group">
+        <label for="message"></label>
+        <textarea
+          class="form-control"
+          id="message"
+          rows="3"
+          placeholder="Your Message"
+          name="message"
+        ></textarea>
+      </div>
+      <br />
+      <button id="nappi" class="btn btn-success" type="submit">Send message</button>
+      <h3 id="status"></h3>
+
+    </form>
     <script type="text/javascript" src="/modules/components.js"></script>
+
+    <script type="text/javascript" src="ajax.js"></script>
   </body>
 </html>

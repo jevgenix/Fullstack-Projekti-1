@@ -2,14 +2,13 @@ const PORT = process.env.PORT || 8081;
 
 const express = require("express");
 const app = express();
-const bodyParser = require("body-parser");
 const fs = require("fs");
+const alert = require("alert");
+
+const bodyParser = require("body-parser");
 
 app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use(express.static("./public"));
-
-newmessage = ["username", "country", "message", "submit buttin (not empty)"];
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/mainpage.html");
@@ -33,23 +32,37 @@ app.post("/newmessage", (req, res) => {
   let id = data.length + 1;
   let date = new Date().toString();
 
-  data.push({
-    id: id,
-    username: username,
-    country: country,
-    date: date,
-    message: message,
-  });
+  if (username.length > 0 && country.length > 0 && message.length > 0) {
+    data.push({
+      id: id,
+      username: username,
+      country: country,
+      date: date,
+      message: message,
+    });
 
-  var jsonStr = JSON.stringify(data);
+    var jsonStr = JSON.stringify(data);
 
-  fs.writeFile("./public/data.json", jsonStr, (err) => {
-    if (err) throw err;
-    console.log("Data sended to json file!");
-  });
-
+    fs.writeFile("./public/data.json", jsonStr, (err) => {
+      if (err) throw err;
+      console.log("Data sended to json file!");
+    });
+  } else {
+    alert("Some forms are missing");
+    return;
+  }
   res.send(
-    "Username: " + username + "Country: " + country + "Message: " + message
+    "Your message informations is sended" +
+      "<br>" +
+      "username = " +
+      username +
+      "<br>" +
+      "country = " +
+      country +
+      "<br>" +
+      "message = " +
+      message +
+      "</br>"
   );
 });
 
@@ -59,6 +72,41 @@ app.get("/ajaxmessage", (req, res) => {
 
 app.get("*", function (req, res) {
   res.send("Cant find the requested page", 404);
+});
+
+app.post("/message", function (req, res) {
+  let data = require("./public/data.json");
+  let id = data.length + 1;
+  let date = new Date().toString();
+
+  if (
+    req.body.username.length > 0 &&
+    req.body.country.length > 0 &&
+    req.body.message.length > 0
+  ) {
+    data.push({
+      id: id,
+      username: req.body.username,
+      country: req.body.country,
+      date: date,
+      message: req.body.message,
+    });
+
+    var jsonStr = JSON.stringify(data);
+
+    fs.writeFile("./public/data.json", jsonStr, (err) => {
+      if (err) throw err;
+      console.log("Data sended to json file!");
+    });
+  } else {
+    console.log("Some fields are missing");
+  }
+
+  res.send(
+    "You send an AJAX message: " +
+      req.body.message +
+      ". It is saved to a JSON file"
+  );
 });
 
 app.listen(PORT, () => {
