@@ -1,17 +1,18 @@
 {
   "name": "fullstack-projekti-1",
   "version": "1.0.0",
-  "description": "",
+  "description": "guestbook app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jevgenix/Fullstack-Projekti-1.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "jevgenix",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jevgenix/Fullstack-Projekti-1/issues"
