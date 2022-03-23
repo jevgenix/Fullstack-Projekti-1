@@ -16,7 +16,7 @@ $(document).ready(function () {
       html += "<tr><td>" + json[i].id + "</td>";
       html += "<td>" + json[i].username + "</td>";
       html += "<td>" + json[i].country + "</td>";
-      html += "<td>" + json[i].date + "</td>";
+      html += "<td>" + new Date(json[i].date).toLocaleString("fi") + "</td>";
       html += "<td>" + json[i].message + "</td></tr>";
     }
 

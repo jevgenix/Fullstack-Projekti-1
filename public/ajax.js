@@ -1,33 +1,34 @@
 window.onload = (event) => {
   var nappi = document.getElementById("nappi");
+  console.log(event);
 
-  nappi.addEventListener("click", () => {
+  nappi.addEventListener("click", (clickEvent) => {
+    clickEvent.preventDefault();
+
     let username = document.getElementById("username").value;
     let country = document.getElementById("country").value;
     let message = document.getElementById("message").value;
-    console.log(username, country, message);
 
-    if (username == "" || country == "" || message == "") {
+    if (!username.length || !country.length || !message.length)
       return alert("Some fields are missing!");
-    } else {
-      let xmlhttp = new xmlhttp.XMLHttpRequest();
-      xmlhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-          document.getElementById("status").innerHTML = this.responseText;
-          console.log(this.responseText);
-        }
-      };
 
-      xmlhttp.open("POST", "/message", true);
-      xmlhttp.setRequestHeader(
-        "Content-type",
-        "application/x-www-form-urlencoded"
-      );
-      xmlhttp.send(
-        "name =" + username + "&country=" + country + "&message=" + message
-      );
-      document.getElementById("status").innerHTML =
-        "name= " + username + "&country= " + country + "&message= " + message;
-    }
+    fetch("/message", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: `username=${username}&country=${country}&message=${message}`,
+    });
+
+    document.getElementById("status").innerHTML =
+      "<br>" +
+      "Username: " +
+      username +
+      "<br>" +
+      "Country: " +
+      country +
+      "<br>" +
+      "Message: " +
+      message;
   });
 };
