@@ -1,0 +1,23 @@
+body {
+  background-color: #1f1e1e;
+}
+
+body .container {
+  padding-top: 20px;
+  padding-left: 10px;
+}
+
+body h1,
+body .h1,
+body h2,
+body .h2,
+body h3,
+body .h3,
+body h4,
+body .h4,
+body h5,
+body .h5,
+body h6,
+body .h6 {
+  color: #fff;
+}
