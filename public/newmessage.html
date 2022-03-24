@@ -63,7 +63,7 @@
             let message = document.getElementById("message").value;  
             
             if (!message.length || !country.length || !username.length) {
-              event.preventDefault();
+              clickEvent.preventDefault();
               return alert("Some fields are missing");
             }
           });
