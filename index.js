@@ -49,7 +49,9 @@ app.post("/newmessage", (req, res) => {
     return;
   }
   res.send(
-    "Your message informations is sended" +
+    "Your data were sended into json table, check guestbook to find your data!" +
+      "<br>" +
+      "Your data is: " +
       "<br>" +
       "username = " +
       username +
