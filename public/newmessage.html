@@ -50,21 +50,7 @@
       </div>
       <br />
       <button id="nappi" class="btn btn-success" type="submit">Send message</button>
-      
-
-
-
     </form>
-
-    <script>
-//      const form = document.querySelector(".form");
-//
-//      fetch("modules/form.html")
-//        .then((res) => res.text())
-//        .then((data) => {
-//          form.innerHTML = data;
-//        });
-    </script>
 
     <script type="text/javascript" src="/modules/components.js"></script>
     <script>
@@ -76,8 +62,10 @@
             let country = document.getElementById("country").value;
             let message = document.getElementById("message").value;  
             
-            if (!message.length || !country.length || !username.length)
+            if (!message.length || !country.length || !username.length) {
+              event.preventDefault();
               return alert("Some fields are missing");
+            }
           });
         };
     </script>
