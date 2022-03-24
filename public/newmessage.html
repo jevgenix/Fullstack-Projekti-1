@@ -34,12 +34,13 @@
     <script>
       window.onload = (event) => {
           var nappi = document.getElementById("nappi");
+          
           nappi.addEventListener("click", (clickEvent) => {
             let username = document.getElementById("username").value;
             let country = document.getElementById("country").value;
-            let message = document.getElementById("message").value;
+            let message = document.getElementById("message").value;  
             
-            if (message.length == 0 || country.length == 0 || username.length == 0)
+            if (!message.length || !country.length || !username.length)
               return alert("Some fields are missing");
           });
         };
