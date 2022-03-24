@@ -18,16 +18,52 @@
       <ul class="lista" id="myList"></ul>
     </div>
 
-    <form class="form" method="post" action="/newmessage"></form>
+    <form class="form" method="post" action="/newmessage">
+      <label class="sr-only" for="username">Username</label>
+
+      <input
+        type="text"
+        class="form-control mb-2 mr-sm-2"
+        id="username"
+        placeholder="Username"
+        name="username"
+      />
+      
+      <label class="sr-only" for="country">Country</label>
+      <input
+        type="text"
+        class="form-control mb-2 mr-sm-2"
+        id="country"
+        placeholder="Country"
+        name="country"
+      />
+      
+      <div class="form-group">
+        <label for="message"></label>
+        <textarea
+          class="form-control"
+          id="message"
+          rows="3"
+          placeholder="Your Message"
+          name="message"
+        ></textarea>
+      </div>
+      <br />
+      <button id="nappi" class="btn btn-success" type="submit">Send message</button>
+      
+
+
+
+    </form>
 
     <script>
-      const form = document.querySelector(".form");
-
-      fetch("modules/form.html")
-        .then((res) => res.text())
-        .then((data) => {
-          form.innerHTML = data;
-        });
+//      const form = document.querySelector(".form");
+//
+//      fetch("modules/form.html")
+//        .then((res) => res.text())
+//        .then((data) => {
+//          form.innerHTML = data;
+//        });
     </script>
 
     <script type="text/javascript" src="/modules/components.js"></script>
