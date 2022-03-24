@@ -3,8 +3,6 @@ const PORT = process.env.PORT || 5000;
 const express = require("express");
 const app = express();
 const fs = require("fs");
-const alert = require("alert");
-
 const bodyParser = require("body-parser");
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -48,7 +46,6 @@ app.post("/newmessage", (req, res) => {
       console.log("Data sended to json file!");
     });
   } else {
-    alert("Some forms are missing");
     return;
   }
   res.send(
