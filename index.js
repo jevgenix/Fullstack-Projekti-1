@@ -48,8 +48,15 @@ app.post("/newmessage", (req, res) => {
   } else {
     return;
   }
+  res.setHeader("Content-type", "text/html");
   res.send(
     "Your data were sended into json table, check guestbook to find your data!" +
+      "<br>" +
+      "You can check your data here: " +
+      "<a href='/guestbook'>Guestbook</a>" +
+      "<br>" +
+      "Or you can return to the mainpage using following link: " +
+      "<a href='/'>Mainpage</a>" +
       "<br>" +
       "Your data is: " +
       "<br>" +
